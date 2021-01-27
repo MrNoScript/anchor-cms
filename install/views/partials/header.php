@@ -5,13 +5,13 @@
     <title>Installin' Anchor CMS</title>
     <meta name="robots" content="noindex, nofollow">
 
-    <link rel="stylesheet" href="<?php echo asset('views/assets/css/install.css'); ?>">
-    <link rel="stylesheet" href="<?php echo asset('views/assets/css/chosen.css'); ?>">
+    <link rel="stylesheet" href="<?= asset('views/assets/css/install.css'); ?>">
+    <link rel="stylesheet" href="<?= asset('views/assets/css/chosen.css'); ?>">
   </head>
   <body>
 
     <nav>
-      <img src="<?php echo asset('views/assets/img/logo.png'); ?>">
+      <img src="<?= asset('views/assets/img/logo.png'); ?>">
 
       <ul>
           <?php if ( ! isset($installed)) : ?>
@@ -26,7 +26,7 @@
 
     <script>
       ( function ( w, d, u ) {
-        var parts = "<?php echo Uri::current(); ?>".split( '/' ),
+        var parts = "<?= Uri::current(); ?>".split( '/' ),
             url   = parts.pop(),
             li    = d.getElementsByClassName( url );
         if ( url == 'complete' ) {

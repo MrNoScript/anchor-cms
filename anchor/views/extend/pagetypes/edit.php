@@ -1,38 +1,38 @@
-<?php echo $header; ?>
+<?= $header; ?>
 
   <header class="wrap">
-    <h1><?php echo __('extend.editing_pagetype', $pagetype->key); ?></h1>
+    <h1><?= __('extend.editing_pagetype', $pagetype->key); ?></h1>
   </header>
 
   <section class="wrap">
-    <form method="post" action="<?php echo Uri::to('admin/extend/pagetypes/edit/' . $pagetype->key); ?>" novalidate>
-      <input name="token" type="hidden" value="<?php echo $token; ?>">
+    <form method="post" action="<?= Uri::to('admin/extend/pagetypes/edit/' . $pagetype->key); ?>" novalidate>
+      <input name="token" type="hidden" value="<?= $token; ?>">
 
       <fieldset class="split">
         <p>
-          <label><?php echo __('extend.name'); ?>:</label>
-            <?php echo Form::text('value', Input::previous('value', $pagetype->value)); ?>
-          <em><?php echo __('extend.name_explain'); ?></em>
+          <label><?= __('extend.name'); ?>:</label>
+            <?= Form::text('value', Input::previous('value', $pagetype->value)); ?>
+          <em><?= __('extend.name_explain'); ?></em>
         </p>
 
         <p>
-          <label><?php echo __('pages.slug'); ?>:</label>
-            <?php echo Form::text('key', Input::previous('key', $pagetype->key)); ?>
-          <em><?php echo __('pages.slug_explain'); ?></em>
+          <label><?= __('pages.slug'); ?>:</label>
+            <?= Form::text('key', Input::previous('key', $pagetype->key)); ?>
+          <em><?= __('pages.slug_explain'); ?></em>
         </p>
       </fieldset>
 
       <aside class="buttons">
-          <?php echo Form::button(__('global.update'), ['class' => 'btn', 'type' => 'submit']); ?>
+          <?= Form::button(__('global.update'), ['class' => 'btn', 'type' => 'submit']); ?>
 
-          <?php echo Html::link('admin/extend/pagetypes', __('global.cancel'), ['class' => 'btn cancel blue']); ?>
+          <?= Html::link('admin/extend/pagetypes', __('global.cancel'), ['class' => 'btn cancel blue']); ?>
 
           <?php if ($pagetype->key != 'all'): ?>
-              <?php echo Html::link('admin/extend/pagetypes/delete/' . $pagetype->key,
+              <?= Html::link('admin/extend/pagetypes/delete/' . $pagetype->key,
                   __('global.delete'), ['class' => 'btn delete red']); ?>
           <?php endif; ?>
       </aside>
     </form>
   </section>
 
-<?php echo $footer; ?>
+<?= $footer; ?>

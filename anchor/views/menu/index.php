@@ -1,7 +1,7 @@
-<?php echo $header; ?>
+<?= $header; ?>
 
 <header class="wrap">
-  <h1><?php echo __('menu.menu', 'Menu'); ?></h1>
+  <h1><?= __('menu.menu', 'Menu'); ?></h1>
 </header>
 
 <section class="wrap">
@@ -10,7 +10,7 @@
       <ul class="sortable">
           <?php foreach ($pages as $page): ?>
             <li class="item" draggable="true">
-              <span data-id="<?php echo $page->id; ?>"><?php echo $page->name; ?></span>
+              <span data-id="<?= $page->id; ?>"><?= $page->name; ?></span>
             </li>
           <?php endforeach; ?>
       </ul>
@@ -22,7 +22,7 @@
     <?php endif; ?>
 </section>
 
-<script src="<?php echo asset('anchor/views/assets/js/sortable.js'); ?>"></script>
+<script src="<?= asset('anchor/views/assets/js/sortable.js'); ?>"></script>
 <script>
   $( '.sortable' ).sortable(
     {
@@ -36,7 +36,7 @@
 
         $.ajax( {
                   'type': 'POST',
-                  'url':  '<?php echo Uri::to("admin/menu/update"); ?>',
+                  'url':  '<?= Uri::to("admin/menu/update"); ?>',
                   'data': $.param( data )
                 } );
       }
@@ -44,4 +44,4 @@
   );
 </script>
 
-<?php echo $footer; ?>
+<?= $footer; ?>

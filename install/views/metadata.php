@@ -1,4 +1,4 @@
-<?php echo $header; ?>
+<?= $header; ?>
 
 <section class="content">
   <article>
@@ -7,10 +7,10 @@
     <p>In order to personalise your Anchor blog, it's recommended you add some metadata about your site. This can all be
        changed at any time, though.</p>
 
-      <?php echo Notify::read(); ?>
+      <?= Notify::read(); ?>
   </article>
 
-  <form method="post" action="<?php echo Uri::to('metadata'); ?>" autocomplete="off">
+  <form method="post" action="<?= Uri::to('metadata'); ?>" autocomplete="off">
 
     <fieldset>
       <p>
@@ -18,21 +18,21 @@
         <i>What’s your blog called? (Min. 4 characters)</i>
 
         <input id="site_name" name="site_name"
-               value="<?php echo Input::previous('site_name', 'My First Anchor Blog'); ?>">
+               value="<?= Input::previous('site_name', 'My First Anchor Blog'); ?>">
       </p>
 
       <p>
         <label for="site_description">Site Description</label>
         <i>A little bit about you or your blog. (Min. 4 characters)</i>
 
-        <textarea id="site_description" name="site_description"><?php echo Input::previous('site_description',
+        <textarea id="site_description" name="site_description"><?= Input::previous('site_description',
                 'It&rsquo;s not just any blog. It&rsquo;s an Anchor blog.'); ?></textarea>
       </p>
 
       <p>
         <label for="site_path">Site Path</label>
         <i>The folder where your Anchor installation lives.</i>
-        <input id="site_path" name="site_path" value="<?php echo Input::previous('site_path', $site_path); ?>">
+        <input id="site_path" name="site_path" value="<?= Input::previous('site_path', $site_path); ?>">
       </p>
 
         <?php if (count($themes) > 1): ?>
@@ -41,13 +41,13 @@
             <i>Your Anchor theme.</i>
             <select id="theme" name="theme">
                 <?php foreach ($themes as $dir => $theme): ?>
-                  <option value="<?php echo $dir; ?>"><?php echo $theme['name']; ?>
-                    by <?php echo $theme['author']; ?></option>
+                  <option value="<?= $dir; ?>"><?= $theme['name']; ?>
+                    by <?= $theme['author']; ?></option>
                 <?php endforeach; ?>
             </select>
           </p>
         <?php else: $theme = key($themes); ?>
-          <input name="theme" type="hidden" value="<?php echo $theme; ?>">
+          <input name="theme" type="hidden" value="<?= $theme; ?>">
         <?php endif; ?>
 
       <p>
@@ -79,10 +79,10 @@
     </fieldset>
 
     <section class="options">
-      <a href="<?php echo uri_to('database'); ?>" class="btn quiet">&laquo; Back</a>
+      <a href="<?= uri_to('database'); ?>" class="btn quiet">&laquo; Back</a>
       <button type="submit" class="btn">Next Step &raquo;</button>
     </section>
   </form>
 </section>
 
-<?php echo $footer; ?>
+<?= $footer; ?>

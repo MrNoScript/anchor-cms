@@ -1,11 +1,11 @@
-<?php echo $header; ?>
+<?= $header; ?>
 
   <header class="wrap">
-    <h1><?php echo __('extend.fields'); ?></h1>
+    <h1><?= __('extend.fields'); ?></h1>
 
     <nav>
       <a class="btn"
-         href="<?php echo Uri::to('admin/extend/fields/add'); ?>"><?php echo __('extend.create_field'); ?></a>
+         href="<?= Uri::to('admin/extend/fields/add'); ?>"><?= __('extend.create_field'); ?></a>
     </nav>
   </header>
 
@@ -15,20 +15,20 @@
         <ul class="list">
             <?php foreach ($extend->results as $field): ?>
               <li>
-                <a href="<?php echo Uri::to('admin/extend/fields/edit/' . $field->id); ?>">
-                  <strong><?php echo $field->label; ?></strong>
-                  <span><?php echo $field->type . ' ' . $field->field; ?></span>
+                <a href="<?= Uri::to('admin/extend/fields/edit/' . $field->id); ?>">
+                  <strong><?= $field->label; ?></strong>
+                  <span><?= $field->type . ' ' . $field->field; ?></span>
                 </a>
               </li>
             <?php endforeach; ?>
         </ul>
 
-        <aside class="paging"><?php echo $extend->links(); ?></aside>
+        <aside class="paging"><?= $extend->links(); ?></aside>
       <?php else: ?>
         <p class="empty">
-          <span class="icon"></span> <?php echo __('extend.nofields_desc'); ?>
+          <span class="icon"></span> <?= __('extend.nofields_desc'); ?>
         </p>
       <?php endif; ?>
   </section>
 
-<?php echo $footer; ?>
+<?= $footer; ?>

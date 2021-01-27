@@ -63,7 +63,7 @@ return [
     'value'             => 'Value',
     'value_explain'     => 'The data you want to store (up to 64kb)',
     'value_code_snipet' => 'Snippet to insert into your template:<br>
-		<code>' . e('<?php echo site_meta(\'%s\'); ?>') . '</code>',
+		<code>' . e('<?= site_meta(\'%s\'); ?>') . '</code>',
 
     // messages
     'variable_created'  => 'Your variable was created',

@@ -1,14 +1,14 @@
-<?php echo $header; ?>
+<?= $header; ?>
 
 <header class="wrap">
-  <h1><?php echo __('comments.comments'); ?></h1>
+  <h1><?= __('comments.comments'); ?></h1>
 </header>
 
 <section class="wrap">
 
   <nav class="sidebar statuses">
       <?php foreach ($statuses as $data): extract($data); ?>
-          <?php echo Html::link('admin/comments/' . $url, '<span class="icon"></span> ' . __($lang), [
+          <?= Html::link('admin/comments/' . $url, '<span class="icon"></span> ' . __($lang), [
               'class' => $class . (isset($status) && $status == $url ? ' active' : '')
           ]); ?>
       <?php endforeach; ?>
@@ -18,23 +18,23 @@
       <ul class="main list">
           <?php foreach ($comments->results as $comment): ?>
             <li>
-              <a href="<?php echo Uri::to('admin/comments/edit/' . $comment->id); ?>">
-                <strong><?php echo strip_tags($comment->text); ?></strong>
-                <span><time><?php echo Date::format($comment->date); ?></time></span>
-                <span class="highlight"><?php echo __('global.' . $comment->status); ?></span>
+              <a href="<?= Uri::to('admin/comments/edit/' . $comment->id); ?>">
+                <strong><?= strip_tags($comment->text); ?></strong>
+                <span><time><?= Date::format($comment->date); ?></time></span>
+                <span class="highlight"><?= __('global.' . $comment->status); ?></span>
               </a>
             </li>
           <?php endforeach; ?>
       </ul>
 
-      <aside class="paging"><?php echo $comments->links(); ?></aside>
+      <aside class="paging"><?= $comments->links(); ?></aside>
 
     <?php else: ?>
       <p class="empty comments">
         <span class="icon"></span>
-          <?php echo __('comments.nocomments_desc'); ?>
+          <?= __('comments.nocomments_desc'); ?>
       </p>
     <?php endif; ?>
 </section>
 
-<?php echo $footer; ?>
+<?= $footer; ?>

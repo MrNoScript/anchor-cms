@@ -3,7 +3,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title><?php echo __('global.upgrade'); ?></title>
+    <title><?= __('global.upgrade'); ?></title>
     <style>
       body {
         font:       100% "Helvetica Neue", "Open Sans", "DejaVu Sans", "Arial", sans-serif;
@@ -82,45 +82,45 @@
   </head>
   <body>
     <div id="start">
-      <img src="<?php echo $base; ?>/anchor/views/assets/img/logo.png" alt="Anchor logo">
+      <img src="<?= $base; ?>/anchor/views/assets/img/logo.png" alt="Anchor logo">
         <?php $compare = version_compare(VERSION, $version); ?>
         <?php if ($compare < 0) : // new release available ?>
-          <h1><?php echo __('global.good_news'); ?></h1>
-          <p><?php echo __('global.new_version_available'); ?></p>
+          <h1><?= __('global.good_news'); ?></h1>
+          <p><?= __('global.new_version_available'); ?></p>
           <p>
-            <small><?php echo VERSION; ?></small>
-            <span> &rarr; <?php echo $version; ?></span></p>
-          <a href="#" onclick="sendAjax()"><?php echo __('global.download_now'); ?></a>
-          <a href="<?php echo $base; ?>/admin"><?php echo __('global.upgrade_later'); ?></a>
+            <small><?= VERSION; ?></small>
+            <span> &rarr; <?= $version; ?></span></p>
+          <a href="#" onclick="sendAjax()"><?= __('global.download_now'); ?></a>
+          <a href="<?= $base; ?>/admin"><?= __('global.upgrade_later'); ?></a>
         <?php elseif ($compare == 0) : // same version as newest ?>
-          <h1><?php echo __('global.good_news'); ?></h1>
-          <p><?php echo __('global.up_to_date'); ?></p>
-          <p><?php echo VERSION; ?></p>
-          <a href="<?php echo $base; ?>/admin"><?php echo __('global.upgrade_finished_thanks'); ?></a>
+          <h1><?= __('global.good_news'); ?></h1>
+          <p><?= __('global.up_to_date'); ?></p>
+          <p><?= VERSION; ?></p>
+          <a href="<?= $base; ?>/admin"><?= __('global.upgrade_finished_thanks'); ?></a>
         <?php elseif ($compare > 0) : // we're at least one ahead! ?>
           <h1>Ooooooweeeeee!</h1>
-          <p><?php echo __('global.better_version'); ?></p>
-          <p><span><?php echo VERSION; ?> &#10567; </span>
-            <small><?php echo $version; ?></small>
+          <p><?= __('global.better_version'); ?></p>
+          <p><span><?= VERSION; ?> &#10567; </span>
+            <small><?= $version; ?></small>
           </p>
-          <a href="<?php echo $base; ?>/admin"><?php echo __('global.upgrade_finished_thanks'); ?></a>
+          <a href="<?= $base; ?>/admin"><?= __('global.upgrade_finished_thanks'); ?></a>
         <?php else : // SOMETHING'S WRONG! ?>
           <p><?php __('global.error_phrase'); ?></p>
-          <a href="<?php echo $base; ?>/admin"><?php echo __('global.error_button'); ?></a>
+          <a href="<?= $base; ?>/admin"><?= __('global.error_button'); ?></a>
         <?php endif; ?>
     </div>
     <div id="loading" hidden>
-      <img class="loadAnchor" src="<?php echo $base; ?>/anchor/views/assets/img/logo.png" alt="Anchor logo">
-      <h1><?php echo __('global.updating'); ?></h1>
+      <img class="loadAnchor" src="<?= $base; ?>/anchor/views/assets/img/logo.png" alt="Anchor logo">
+      <h1><?= __('global.updating'); ?></h1>
     </div>
     <div id="finished" hidden>
-      <img src="<?php echo $base; ?>/anchor/views/assets/img/logo.png" alt="Anchor logo">
+      <img src="<?= $base; ?>/anchor/views/assets/img/logo.png" alt="Anchor logo">
       <h1 class="fin_h1"></h1>
-      <a class="fin_goBack" href="<?php echo Uri::to('admin/upgrade/'); ?>">Try again</a>
-      <a class="fin_continue" href="<?php echo Uri::to('admin/'); ?>">Nevermind</a>
+      <a class="fin_goBack" href="<?= Uri::to('admin/upgrade/'); ?>">Try again</a>
+      <a class="fin_continue" href="<?= Uri::to('admin/'); ?>">Nevermind</a>
       <img class="dancing_robot" src="https://i.imgur.com/VKKeQX6.gif" alt="Gangnam Robot!"/>
     </div>
-    <script type="text/javascript" src="<?php echo $base; ?>/anchor/views/assets/js/zepto.js"></script>
+    <script type="text/javascript" src="<?= $base; ?>/anchor/views/assets/js/zepto.js"></script>
     <script>
       var sendAjax;
       ( function ( $ ) {
@@ -137,8 +137,8 @@
 
         function finished ( success ) {
           document.querySelector( '.fin_h1' ).innerText = ( success
-              ? "<?php echo __('global.upgrade_good'); ?>"
-              : "<?php echo __('global.upgrade_bad'); ?>"
+              ? "<?= __('global.upgrade_good'); ?>"
+              : "<?= __('global.upgrade_bad'); ?>"
           );
 
           var goBack = document.querySelector( '.fin_goBack' );
@@ -146,7 +146,7 @@
 
           if ( success ) {
             goBack.parentNode.removeChild( goBack );
-            cont.innerText = "<?php echo __('global.upgrade_finished_thanks')?>";
+            cont.innerText = "<?= __('global.upgrade_finished_thanks')?>";
           } else {
             var robot = document.querySelector( '.dancing_robot' );
             robot.parentNode.removeChild( robot );
@@ -169,7 +169,7 @@
 
         sendAjax = function () {
           $.ajax( {
-                    url:     "<?php echo Uri::to('admin/upgrade/'); ?>",
+                    url:     "<?= Uri::to('admin/upgrade/'); ?>",
                     type:    'POST',
                     success: function ( data, textStatus, jqXHR ) {
                       data = JSON.parse( data );

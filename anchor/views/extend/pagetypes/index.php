@@ -1,10 +1,10 @@
-<?php echo $header; ?>
+<?= $header; ?>
 
 <header class="wrap">
-  <h1><?php echo __('extend.pagetypes'); ?></h1>
+  <h1><?= __('extend.pagetypes'); ?></h1>
 
   <nav>
-      <?php echo Html::link('admin/extend/pagetypes/add', __('extend.create_pagetype'), ['class' => 'btn']); ?>
+      <?= Html::link('admin/extend/pagetypes/add', __('extend.create_pagetype'), ['class' => 'btn']); ?>
   </nav>
 </header>
 
@@ -14,18 +14,18 @@
       <ul class="list">
           <?php foreach ($pagetypes as $type): ?>
             <li>
-              <a href="<?php echo Uri::to('admin/extend/pagetypes/edit/' . $type->key); ?>">
-                <strong><?php echo e($type->value); ?></strong>
-                <p><?php echo $type->key; ?></p>
+              <a href="<?= Uri::to('admin/extend/pagetypes/edit/' . $type->key); ?>">
+                <strong><?= e($type->value); ?></strong>
+                <p><?= $type->key; ?></p>
               </a>
             </li>
           <?php endforeach; ?>
       </ul>
     <?php else: ?>
       <p class="empty">
-        <span class="icon"></span> <?php echo __('extend.notypes_desc'); ?>
+        <span class="icon"></span> <?= __('extend.notypes_desc'); ?>
       </p>
     <?php endif; ?>
 </section>
 
-<?php echo $footer; ?>
+<?= $footer; ?>

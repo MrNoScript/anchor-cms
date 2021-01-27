@@ -1,4 +1,4 @@
-<?php echo $header; ?>
+<?= $header; ?>
 
   <header class="wrap">
     <h1>Plugins</h1>
@@ -10,4 +10,4 @@
     </p>
   </section>
 
-<?php echo $footer; ?>
+<?= $footer; ?>

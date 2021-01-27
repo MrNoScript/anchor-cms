@@ -1,12 +1,12 @@
-<?php echo $header; ?>
+<?= $header; ?>
 
   <section class="login content">
-    <form method="post" action="<?php echo Uri::to('admin/amnesia'); ?>">
-      <input name="token" type="hidden" value="<?php echo $token; ?>">
+    <form method="post" action="<?= Uri::to('admin/amnesia'); ?>">
+      <input name="token" type="hidden" value="<?= $token; ?>">
 
       <fieldset>
-        <p><label for="label-email"><?php echo __('users.email'); ?>:</label>
-            <?php echo Form::email('email', Input::previous('email'), [
+        <p><label for="label-email"><?= __('users.email'); ?>:</label>
+            <?= Form::email('email', Input::previous('email'), [
                 'id'             => 'label-email',
                 'autocapitalize' => 'off',
                 'autofocus'      => 'true',
@@ -14,12 +14,12 @@
             ]); ?></p>
 
         <p class="buttons">
-          <a href="<?php echo Uri::to('admin/login'); ?>"><?php echo __('users.remembered'); ?></a>
-          <button type="submit"><?php echo __('global.reset'); ?></button>
+          <a href="<?= Uri::to('admin/login'); ?>"><?= __('users.remembered'); ?></a>
+          <button type="submit"><?= __('global.reset'); ?></button>
         </p>
       </fieldset>
     </form>
 
   </section>
 
-<?php echo $footer; ?>
+<?= $footer; ?>

@@ -1,10 +1,10 @@
-<?php echo $header; ?>
+<?= $header; ?>
 
   <header class="wrap">
-    <h1><?php echo __('extend.variables'); ?></h1>
+    <h1><?= __('extend.variables'); ?></h1>
 
     <nav>
-        <?php echo Html::link('admin/extend/variables/add', __('extend.create_variable'), ['class' => 'btn']); ?>
+        <?= Html::link('admin/extend/variables/add', __('extend.create_variable'), ['class' => 'btn']); ?>
     </nav>
   </header>
 
@@ -14,18 +14,18 @@
         <ul class="list">
             <?php foreach ($variables as $var): ?>
               <li>
-                <a href="<?php echo Uri::to('admin/extend/variables/edit/' . $var->key); ?>">
-                  <strong><?php echo substr($var->key, strlen('custom_')); ?></strong>
-                  <p><?php echo e($var->value); ?></p>
+                <a href="<?= Uri::to('admin/extend/variables/edit/' . $var->key); ?>">
+                  <strong><?= substr($var->key, strlen('custom_')); ?></strong>
+                  <p><?= e($var->value); ?></p>
                 </a>
               </li>
             <?php endforeach; ?>
         </ul>
       <?php else: ?>
         <p class="empty">
-          <span class="icon"></span> <?php echo __('extend.novars_desc'); ?>
+          <span class="icon"></span> <?= __('extend.novars_desc'); ?>
         </p>
       <?php endif; ?>
   </section>
 
-<?php echo $footer; ?>
+<?= $footer; ?>

@@ -1,4 +1,4 @@
-<?php echo $header; ?>
+<?= $header; ?>
 
 <section class="content">
   <article>
@@ -8,10 +8,10 @@
        found the right place. Simply fill in the details below, and you&rsquo;ll have your
        new blog set up in no time.</p>
 
-      <?php echo Notify::read(); ?>
+      <?= Notify::read(); ?>
   </article>
 
-  <form method="post" action="<?php echo uri_to('start'); ?>" autocomplete="off">
+  <form method="post" action="<?= uri_to('start'); ?>" autocomplete="off">
 
     <fieldset>
       <p>
@@ -22,7 +22,7 @@
         <select id="lang" class="chosen-select" name="language">
             <?php foreach ($languages as $lang): ?>
                 <?php $selected = in_array($lang, $prefered_languages) ? ' selected' : ''; ?>
-              <option<?php echo $selected; ?>><?php echo $lang; ?></option>
+              <option<?= $selected; ?>><?= $lang; ?></option>
             <?php endforeach; ?>
         </select>
       </p>
@@ -36,8 +36,8 @@
             <?php $set = false; ?>
             <?php foreach ($timezones as $zone): ?>
                 <?php $selected = ($set === false and $current_timezone == $zone['timezone_id']) ? ' selected' : ''; ?>
-              <option value="<?php echo $zone['timezone_id']; ?>"<?php echo $selected; ?>>
-                  <?php echo $zone['label']; ?>
+              <option value="<?= $zone['timezone_id']; ?>"<?= $selected; ?>>
+                  <?= $zone['label']; ?>
               </option>
                 <?php if ($selected) {
                     $set = true;
@@ -53,4 +53,4 @@
   </form>
 </section>
 
-<?php echo $footer; ?>
+<?= $footer; ?>

@@ -1,11 +1,11 @@
-<?php echo $header; ?>
+<?= $header; ?>
 
 <header class="wrap">
-  <h1><?php echo __('users.users'); ?></h1>
+  <h1><?= __('users.users'); ?></h1>
 
     <?php if (Auth::admin()) : ?>
       <nav>
-          <?php echo Html::link('admin/users/add', __('users.create_user'), ['class' => 'btn']); ?>
+          <?= Html::link('admin/users/add', __('users.create_user'), ['class' => 'btn']); ?>
       </nav>
     <?php endif; ?>
 </header>
@@ -15,17 +15,17 @@
   <ul class="list">
       <?php foreach ($users->results as $user): ?>
         <li>
-          <a href="<?php echo Uri::to('admin/users/edit/' . $user->id); ?>">
-            <strong><?php echo $user->real_name; ?></strong>
-            <span><?php echo __('users.username'); ?>: <?php echo $user->username; ?></span>
+          <a href="<?= Uri::to('admin/users/edit/' . $user->id); ?>">
+            <strong><?= $user->real_name; ?></strong>
+            <span><?= __('users.username'); ?>: <?= $user->username; ?></span>
 
-            <em class="highlight"><?php echo __('users.' . $user->role); ?></em>
+            <em class="highlight"><?= __('users.' . $user->role); ?></em>
           </a>
         </li>
       <?php endforeach; ?>
   </ul>
 
-  <aside class="paging"><?php echo $users->links(); ?></aside>
+  <aside class="paging"><?= $users->links(); ?></aside>
 </section>
 
-<?php echo $footer; ?>
+<?= $footer; ?>

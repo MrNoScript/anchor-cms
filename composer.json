@@ -2,7 +2,7 @@
     "name": "anchorcms/anchor-cms",
     "description": "Anchor is a free, lightweight, faster-than-a-bullet, simple blogging system, made for art–directed posts.",
     "type": "cms",
-    "version": "0.12.7",
+    "version": "0.13.1",
     "keywords": ["CMS", "anchor", "anchorcms"],
     "license": "GPL-3.0",
     "authors": [
@@ -25,16 +25,20 @@
         {
             "name": "Jarod",
             "email": "thebrenny@brennytizer.com.au"
+        },
+        {
+            "name": "Tom",
+            "email": "tom@tomroberts.uk"
         }
     ],
     "require": {
-        "php": ">=5.6",
+        "php": ">=7.4",
         "ircmaxell/random-lib": "^1.1",
         "ircmaxell/password-compat": "^1.0",
         "indigophp/hash-compat": "^1.1"
     },
-  "require-dev": {
-    "peridot-php/peridot": "^1.19",
-        "peridot-php/leo": "^1.6"
-  }
+    "require-dev": {
+        "peridot-php/peridot": "^1.19",
+            "peridot-php/leo": "^1.6"
+    }
 }

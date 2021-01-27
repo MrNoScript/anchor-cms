@@ -34,7 +34,7 @@
 
     <h1>404</h1>
 
-    <p>The page <code><?php echo htmlspecialchars(Uri::current()); ?></code> was not found.</p>
+    <p>The page <code><?= htmlspecialchars(Uri::current()); ?></code> was not found.</p>
 
     <p>Try the <a href="/">homepage</a></p>
 
