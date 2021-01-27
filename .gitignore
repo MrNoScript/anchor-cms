@@ -23,7 +23,7 @@ Thumbs.db
 
 # debug and custom themes
 /themes/*
-!/themes/default
+# !/themes/default
 !/themes/basic
 
 # uploaded content

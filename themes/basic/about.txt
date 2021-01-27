@@ -1,0 +1,4 @@
+Theme name:    Basic
+Description:   This is a Basic theme for Anchor CMS.
+Author name:   Tom Roberts
+Author site:   http://tomroberts..uk
