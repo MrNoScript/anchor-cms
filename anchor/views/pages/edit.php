@@ -39,7 +39,6 @@
             'autocomplete' => 'off',
             'autofocus'    => 'true'
         ]); ?>
-        <div class="notifications"></div>
     </div>
   </fieldset>
 
@@ -56,8 +55,6 @@
         <?= Form::textarea('markdown', Input::previous('markdown', $page->markdown), [
             'placeholder' => __('pages.content_explain')
         ]); ?>
-
-        <?= $editor; ?>
     </div>
   </fieldset>
 
@@ -117,6 +114,7 @@
   </fieldset>
 </form>
 
+<script src="<?= asset('anchor/views/assets/js/simplemde.min.js'); ?>"></script>
 <script src="<?= asset('anchor/views/assets/js/redirect.js'); ?>"></script>
 <script src="<?= asset('anchor/views/assets/js/dragdrop.js'); ?>"></script>
 <script src="<?= asset('anchor/views/assets/js/upload-fields.js'); ?>"></script>
@@ -125,7 +123,8 @@
 <script src="<?= asset('anchor/views/assets/js/change-saver.js'); ?>"></script>
 <script src="<?= asset('anchor/views/assets/js/autosave.js'); ?>"></script>
 <script>
-  $( 'textarea[name=markdown]' ).editor();
+  var simplemde = new SimpleMDE({ element: document.querySelector( 'textarea[name=markdown]' ) });
+
   $( '#pagetype' ).on( 'change', function () {
     var $this = $( this );
     $.post( "<?= Uri::to('admin/get_fields'); ?>", {
@@ -138,6 +137,7 @@
       $( 'input[name="token"]' ).replaceWith( res.token );
     } );
   } );
+
 </script>
 
 <?= $footer; ?>

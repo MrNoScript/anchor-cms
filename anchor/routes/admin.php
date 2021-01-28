@@ -11,6 +11,20 @@ use System\route;
 use System\session;
 use System\view;
 
+Route::action('admin', function(){
+    if(!Auth::admin()){
+        Notify::error(['You are not allowed to do that.']);
+        return Response::redirect('admin/');
+    }
+});
+
+Route::action('editor', function(){
+    if(!Auth::editor()){
+        Notify::error(['You are not allowed to do that.']);
+        return Response::redirect('admin/');
+    }
+});
+
 Route::action('auth', function () {
     if (Auth::guest()) {
         return Response::redirect('admin/login');
@@ -37,6 +51,7 @@ Route::action('csrf', function () {
 });
 
 Route::action('install_exists', function () {
+    return;
     if (file_exists('install') && ! Session::get('messages.error')) {
         Notify::error(['Please remove the install directory before publishing your site']);
     }
@@ -273,7 +288,7 @@ Route::post('admin/upgrade', [
     List extend
 */
 Route::get('admin/extend', [
-    'before' => 'auth',
+    'before' => 'auth,admin',
     'main'   => function ($page = 1) {
 
         $vars['token'] = Csrf::token();
@@ -308,9 +323,16 @@ Route::post('admin/get_fields', [
 Route::post('admin/upload', [
     'before' => 'auth',
     'main'   => function () {
-        $uploader = new Uploader(PATH . 'content', ['png', 'jpg', 'bmp', 'gif', 'pdf']);
+
+        $path = DS . date("Y") . DS . date("m");
+        
+        if(!file_exists(PATH . 'content' . $path)){
+            mkdir(PATH . 'content' . $path, 0777, true);
+        }
+
+        $uploader = new Uploader(PATH . 'content' . $path, ['png', 'jpg', 'bmp', 'gif', 'pdf']);
         $filepath = $uploader->upload($_FILES['file']);
-        $uri      = rtrim(Config::app('url'), '/') . '/content/' . basename($filepath);
+        $uri      = rtrim(Config::app('url'), '/') . '/content' . str_replace('\\', '/', $path) . '/' . basename($filepath);
         $output   = ['uri' => $uri];
 
         return Response::json($output);

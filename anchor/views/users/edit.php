@@ -35,7 +35,7 @@
                   ['id' => 'label-status']); ?>
             <em><?= __('users.status_explain'); ?></em>
           </p>
-            <?php if (false && Auth::admin()) : ?>
+            <?php if ( Auth::admin() ) : ?>
               <p>
                 <label for="label-role"><?= __('users.role'); ?>:</label>
                   <?= Form::select('role', $roles, Input::previous('role', $user->role),

@@ -6,7 +6,7 @@ use System\input;
 use System\route;
 use System\view;
 
-Route::collection(['before' => 'auth,csrf,install_exists'], function () {
+Route::collection(['before' => 'auth,csrf,admin,install_exists'], function () {
 
     /**
      * List Fields

@@ -53,6 +53,17 @@ class auth
         return false;
     }
 
+    public static function editor(){
+        
+        if(self::admin()) return true;
+
+        if ($id = Session::get(static::$session)) {
+            return User::find($id)->role == 'editor';
+        }
+
+        return false;
+    }
+
     /**
      * Checks whether a specific user ID matches the current user
      *

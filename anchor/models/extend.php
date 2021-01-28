@@ -139,12 +139,12 @@ class extend extends Base
 
             case 'image':
             case 'file':
-                $value = isset($item->value->filename) ? $item->value->filename : '';
+                $value = isset($item->value->filename) ? str_replace('/content/', '', $item->value->filename) : '';
 
                 $html = '<span class="current-file">';
 
                 if ($value) {
-                    $html .= '<a href="' . asset('content/' . $value) . '" target="_blank">' . $value . '</a>';
+                    $html .= '<a href="' . asset('content/' . $value) . '" target="_blank">' . $item->value->name . '</a>';
                 }
 
                 $html .= '</span>
@@ -214,10 +214,12 @@ class extend extends Base
 
         // Handle images which have been uploaded indirectly not as files.
         $image_upload = Input::get('extend.' . $extend->key);
+
         if ($image_upload) {
             $image_upload = str_replace("\\", '/', $image_upload);
-            $filename     = basename($image_upload);
-            $name         = $filename;
+
+            $filename     = str_replace('/content/', '', $image_upload);
+            $name         = basename($filename);
         }
 
         $data = compact('name', 'filename');

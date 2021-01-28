@@ -6,7 +6,7 @@ use System\input;
 use System\route;
 use System\view;
 
-Route::collection(['before' => 'auth,csrf,install_exists'], function () {
+Route::collection(['before' => 'auth,csrf,admin,install_exists'], function () {
 
     /**
      * List users
@@ -53,12 +53,13 @@ Route::collection(['before' => 'auth,csrf,install_exists'], function () {
             'email',
             'real_name',
             'bio',
-            'status'
+            'status',
+            'role'
         ]);
         $password_reset = false;
 
         // Force admin for now
-        $input['role'] = 'administrator';
+        // $input['role'] = 'administrator';
 
         // A little higher to avoid messing with the password
         foreach ($input as $key => &$value) {

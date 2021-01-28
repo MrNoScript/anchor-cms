@@ -9,6 +9,7 @@
 
 
     <link rel="stylesheet" href="<?= asset('anchor/views/assets/css/admin.min.css'); ?>">
+    <link rel="stylesheet" href="<?= asset('anchor/views/assets/css/simplemde.min.css'); ?>">
 
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=600">
@@ -31,7 +32,7 @@
                   <a href="<?= Uri::to('admin/' . $page); ?>">Anchor CMS</a>
                 </li>
 
-                  <?php $menu = ['posts', 'comments', 'pages', 'categories', 'users', 'extend']; ?>
+                  <?php $menu = ['posts', 'pages', 'categories']; $admin_menu = ['users', 'extend']; ?>
                   <?php foreach ($menu as $url): ?>
                     <li <?php if (strpos(Uri::current(), $url) !== false) {
                         echo 'class="active"';
@@ -41,6 +42,17 @@
                       </a>
                     </li>
                   <?php endforeach; ?>
+                  <?php if(Auth::admin()): ?>
+                  <?php foreach ($admin_menu as $url): ?>
+                    <li <?php if (strpos(Uri::current(), $url) !== false) {
+                        echo 'class="active"';
+                    } ?>>
+                      <a href="<?= Uri::to('admin/' . $url); ?>">
+                          <?= ucfirst(__($url . '.' . $url)); ?>
+                      </a>
+                    </li>
+                  <?php endforeach; ?>
+                  <?php endif; ?>
               </ul>
             </nav>
 

@@ -44,6 +44,7 @@ class template extends View
                         $template .= '-' . $item->slug;
                     }
                 }
+                
             }
         }
 

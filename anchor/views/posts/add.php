@@ -59,6 +59,7 @@
                 <?= Form::select('category', $categories, Input::previous('category'), array('id' => 'label-category')); ?>
                 <em><?= __('posts.category_explain'); ?></em>
             </p>
+            <?php if(Auth::admin()): ?>
             <p>
                 <label for="label-comments"><?= __('posts.allow_comments'); ?>:</label>
                 <?= Form::checkbox('comments', 1, $checked_comments, array('id' => 'label-comments')); ?>
@@ -74,6 +75,7 @@
                 <?= Form::textarea('js', Input::previous('js'), array('id' => 'label-js')); ?>
                 <em><?= __('posts.custom_js_explain'); ?></em>
             </p>
+            <?php endif; ?>
             <?php foreach ($fields as $field): ?>
             <p>
                 <label for="extend_<?= $field->key; ?>"><?= $field->label; ?>:</label>

@@ -146,16 +146,18 @@ $(function() {
 				value = element.value,
 				fileOutput = '[' + file.name + '](' + data.uri + ')' + "\n\n";
 
+
 			if(['image/jpeg', 'image/gif', 'image/png', 'image/bmp'].indexOf(file.type) !== -1) {
 				fileOutput = "\n\n!" + fileOutput;
 			} else {
 				fileOutput = "\n\n" + fileOutput;
 			}
-
-			element.value = value.substring(0, start) + fileOutput + value.substring(start);
-			element.selectionStart = element.selectionEnd = start + file.length;
-			textarea.trigger('keydown');
+			
+			const pos = simplemde.codemirror.getCursor();
+			console.log(pos);
+			simplemde.codemirror.replaceRange(fileOutput, pos);;
 		}
+		$("#upload-file-progress").hide();
 	};
 
 	if(window.FileReader && window.FileList && window.File) {
@@ -166,6 +168,6 @@ $(function() {
 		zone.on('dragexit', close);
 
 		body.append(uploader);
-		body.append('<div id="upload-file-progress"><progress value="0"></progress></div>');
+		body.append('<div id="upload-file-progress" style="display: none;"><progress value="0"></progress></div>');
 	}
 });

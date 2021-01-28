@@ -144,9 +144,13 @@ function receive($name = '')
  *
  * @return string
  */
-function body_class()
+function body_class($body_classes = null)
 {
     $classes = [];
+
+    if(!empty($body_classes)){
+        $classes = explode(' ', $body_classes);
+    }
 
     //  Is it a posts page?
     if (is_postspage()) {

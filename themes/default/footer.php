@@ -5,7 +5,7 @@
 	                <ul role="navigation">
 	                    <li><a href="<?= rss_url(); ?>">RSS</a></li>
 	                    <?php if (twitter_account()): ?>
-	                    <li><a href="<?= twitter_url(); ?>">@<?= twitter_account(); ?></a></li>
+	                    	<li><a href="<?= twitter_url(); ?>">@<?= twitter_account(); ?></a></li>
 	                    <?php endif; ?>
 
 	                    <li><a href="<?= base_url('admin'); ?>" title="Administer your site!">Admin area</a></li>

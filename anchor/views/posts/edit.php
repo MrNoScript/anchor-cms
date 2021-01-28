@@ -31,7 +31,6 @@
             'autocomplete' => 'off',
             'autofocus'    => 'true'
         ]); ?>
-        <div class="notifications"></div>
     </div>
   </fieldset>
 
@@ -40,8 +39,6 @@
         <?= Form::textarea('markdown', Input::previous('markdown', $article->markdown), [
             'placeholder' => __('posts.content_explain')
         ]); ?>
-
-        <?= $editor; ?>
     </div>
   </fieldset>
 
@@ -74,6 +71,7 @@
               ['id' => 'label-category']); ?>
         <em><?= __('posts.category_explain'); ?></em>
       </p>
+      <?php if(User::admin()): ?>
       <p>
         <label for="label-comments"><?= __('posts.allow_comments'); ?>:</label>
           <?= Form::checkbox('comments', 1, Input::previous('comments', $article->comments) == 1,
@@ -90,6 +88,7 @@
           <?= Form::textarea('js', Input::previous('js', $article->js), ['id' => 'label-js']); ?>
         <em><?= __('posts.custom_js_explain'); ?></em>
       </p>
+      <?php endif; ?>
         <?php foreach ($fields as $field): ?>
           <p>
             <label for="extend_<?= $field->key; ?>"><?= $field->label; ?>:</label>
@@ -100,6 +99,7 @@
   </fieldset>
 </form>
 
+<script src="<?= asset('anchor/views/assets/js/simplemde.min.js'); ?>"></script>
 <script src="<?= asset('anchor/views/assets/js/slug.js'); ?>"></script>
 <script src="<?= asset('anchor/views/assets/js/dragdrop.js'); ?>"></script>
 <script src="<?= asset('anchor/views/assets/js/upload-fields.js'); ?>"></script>
@@ -108,7 +108,7 @@
 <script src="<?= asset('anchor/views/assets/js/change-saver.js'); ?>"></script>
 <script src="<?= asset('anchor/views/assets/js/autosave.js'); ?>"></script>
 <script>
-  $( 'textarea[name=markdown]' ).editor();
+  var simplemde = new SimpleMDE({ element: document.querySelector( 'textarea[name=markdown]' ) });
   $( 'form' ).changeSaver( 'textarea[name=markdown]' );
 </script>
 

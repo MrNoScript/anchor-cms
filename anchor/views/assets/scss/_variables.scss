@@ -5,6 +5,8 @@
 // colors
 @import "colors";
 
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900');
+
 // page
 $page-background: $color-athens-gray;
 $page-color: $color-slate-gray;
@@ -14,7 +16,7 @@ $border-radius: 5px;
 
 // fonts
 $font-family-serif: serif;
-$font-family-sans-serif: "Helvetica Neue", "Open Sans", "DejaVu Sans", "Arial", sans-serif;
+$font-family-sans-serif: "Nunito Sans", "Open Sans", "DejaVu Sans", "Arial", sans-serif;
 $font-family-monospace: Monaco, "Courier New", courier, monospace;
 $font-family-base: $font-family-sans-serif;
 
@@ -51,7 +53,7 @@ $link-transition-speed: $transition-speed-base;
 $icon-logo: '../img/logo.png';
 $icon-cloud: '../img/cloud.png';
 $icon-cross: '../img/cross.gif';
-$icon-check-mark: '../img/tick.png';
+$icon-check-mark: '../img/tick.gif';
 
 // breakpoints
 $breakpoint-small: 981px;

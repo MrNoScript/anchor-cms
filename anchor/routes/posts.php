@@ -139,6 +139,14 @@ Route::collection(['before' => 'auth,csrf,install_exists'], function () {
         // convert to ascii
         $input['slug'] = slug($input['slug']);
 
+        if(empty($input['css'])){
+            $input['css'] = '';
+        }
+
+        if(empty($input['js'])){
+            $input['js'] = '';
+        }
+
         // an array of items that we shouldn't encode - they're no XSS threat
         $dont_encode = ['description', 'markdown', 'css', 'js'];
 
@@ -255,6 +263,14 @@ Route::collection(['before' => 'auth,csrf,install_exists'], function () {
         // if there is no slug try and create one from the title
         if (empty($input['slug'])) {
             $input['slug'] = $input['title'];
+        }
+
+        if(empty($input['css'])){
+            $input['css'] = '';
+        }
+
+        if(empty($input['js'])){
+            $input['js'] = '';
         }
 
         // convert to ascii

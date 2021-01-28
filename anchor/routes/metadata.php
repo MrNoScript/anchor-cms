@@ -6,7 +6,7 @@ use System\input;
 use System\route;
 use System\view;
 
-Route::collection(['before' => 'auth,install_exists'], function () {
+Route::collection(['before' => 'auth,admin,install_exists'], function () {
 
     /**
      * List Metadata
