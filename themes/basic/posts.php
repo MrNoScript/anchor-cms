@@ -13,7 +13,7 @@ theme_include('header');
 ?>
 
 <header>
-    <div class="container jumbotron mt-3">
+    <div class="container jumbotron mt-sm-3">
         <h1 class="display-1"><?= page_title(); ?></h1>
     </div>
 </header>
