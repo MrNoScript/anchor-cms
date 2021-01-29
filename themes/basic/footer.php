@@ -20,6 +20,8 @@ defined( 'PATH' ) || exit;
             </small>
             </div>
         </footer>
+        <script src="<?= theme_url('js/jquery.min.js') ?>"></script>
+        <script src="<?= theme_url('js/bootstrap.bundle.min.js') ?>"></script>
     </body>
 </html>
         

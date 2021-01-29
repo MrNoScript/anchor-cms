@@ -5,7 +5,7 @@
                         Uneed2Cook
                     </a>
 
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav">
                         <span class="navbar-toggler-icon"></span>
                     </button>
 

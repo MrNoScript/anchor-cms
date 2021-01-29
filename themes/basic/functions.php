@@ -5,6 +5,8 @@ function article_excerpt($limit = 140, $suffix = '…') {
     $content = strip_tags(article_html());
     $len = strlen($content);
 
+    $content = preg_replace('/\[\w+\]/', '', $content);
+
     $words = preg_split('/\s+/', $content, null, PREG_SPLIT_NO_EMPTY);
 
     if($len < $limit) {
